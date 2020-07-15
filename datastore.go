@@ -3,7 +3,6 @@ package wallet
 import (
 	"bytes"
 	"encoding/json"
-	"math/big"
 	"time"
 
 	"github.com/btcsuite/btcd/btcec"
@@ -195,7 +194,7 @@ type Utxo struct {
 	AtHeight int32
 
 	// The higher the better
-	Value string
+	Value int64
 
 	// Output script
 	ScriptPubkey []byte
@@ -270,7 +269,7 @@ type Txn struct {
 	Txid string
 
 	// The value relevant to the wallet
-	Value string
+	Value int64
 
 	// The height at which it was mined
 	Height int32
@@ -324,6 +323,6 @@ type CurrencyDefinition struct {
 }
 type CurrencyValue struct {
 	Currency           CurrencyDefinition
-	Value              big.Int
+	Value              int64
 	ValueSerialization json.Number
 }
